@@ -1,3 +1,5 @@
+@import './reset.css';
+
 :root {
   font-family: Raleway, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -24,8 +26,11 @@
 
   --primary-text-color: var(--black);
   --secondary-text-color: var(--gray);
+  --alternative-text-color: var(--white);
 
   --background-color: var(--white);
+
+  --btn-bg-color: var(--primary-color);
 }
 
 html {
@@ -53,7 +58,6 @@ body {
   display: flex;
   place-items: center;
   margin: 0;
-  /* width: 100vw; */
   min-width: 320px;
   min-height: 100vh;
   color: var(--primary-text-color);
@@ -99,8 +103,7 @@ button:focus-visible {
 
 .container {
   display: flex;
-  flex-direction: column;
-  padding: 0 15px;
-  max-width: 1590px;
+  padding: 0 1.5rem;
+  max-width: 1560px;
   width: 100%;
 }

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import logo from '/src/assets/66bit-logo.svg';
+import logo from '@assets/66bit-logo.svg';
 import styles from './Header.module.scss';
 
 export const Header: FC = () => {

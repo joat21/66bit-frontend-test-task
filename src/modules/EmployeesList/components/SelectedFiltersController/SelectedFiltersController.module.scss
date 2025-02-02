@@ -1,0 +1,16 @@
+.selected-filters__controller {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+
+  span {
+    font-size: 2rem;
+    line-height: 1.175;
+    font-weight: 500;
+  }
+
+  &-items {
+    display: flex;
+    gap: 2.4rem;
+  }
+}

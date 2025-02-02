@@ -1,0 +1,17 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.3rem 9.375%;
+  background-color: var(--light-gray);
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .btn {
+      max-width: 146px;
+    }
+  }
+}
