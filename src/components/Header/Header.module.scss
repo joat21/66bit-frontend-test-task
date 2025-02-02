@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 8px 0px rgba(#3971a4, 0.25);
+
+  &__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+  }
+
+  &__logo img {
+    display: block;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 4.8rem;
+
+    &-contacts {
+      display: flex;
+      gap: 6.4rem;
+    }
+  }
+}
