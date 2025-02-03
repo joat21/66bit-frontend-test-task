@@ -6,10 +6,7 @@ import { Top } from '../Top';
 import { SelectedFilters } from '../SelectedFilters';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { EmployeesTable } from '../EmployeesTable';
-
-export interface FetchEmployeesUrlParams {
-  name?: string;
-}
+import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 
 export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});

@@ -1,6 +1,6 @@
 import { Employee } from '@entities/model';
+import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 import { capitalize } from 'helpers/capitalize';
-import { FetchEmployeesUrlParams } from '../EmployeesList';
 
 interface FetchEmployeesArgs {
   pageParam: number;
@@ -21,12 +21,12 @@ export const fetchEmployees = async ({
   });
 
   Object.entries(urlParams).map(([key, value]) => {
-    if (value) {
+    if (Array.isArray(value)) {
+      value.map((item) => params.append(capitalize(key), item));
+    } else if (value) {
       params.append(capitalize(key), value);
     }
   });
-
-  console.log(urlParams);
 
   const res = await fetch(
     'https://frontend-test-api.stk8s.66bit.ru/api/Employee?' + params.toString()

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './SelectedFilters.module.scss';
 import { Button } from '@UI';
 import { SelectedFiltersController } from '../SelectedFiltersController';
-import { FetchEmployeesUrlParams } from '../EmployeesList';
+import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 
 interface SelectedFiltersProps {
   filters: FetchEmployeesUrlParams;
