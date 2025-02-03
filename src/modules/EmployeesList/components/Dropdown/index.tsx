@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FetchEmployeesUrlParams,
   Gender,
@@ -21,6 +21,10 @@ export const Dropdown = <T extends Position | Gender | Stack>({
   options,
 }: DropdownProps<T>) => {
   const [checkedItems, setCheckedItems] = useState<T[]>(selectedItems ?? []);
+
+  useEffect(() => {
+    setCheckedItems(selectedItems ?? []);
+  }, [selectedItems]);
 
   const handleCheck = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = event.target;

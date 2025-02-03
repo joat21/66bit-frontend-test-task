@@ -18,7 +18,7 @@ export const SelectedFilters: FC<SelectedFiltersProps> = ({
   return (
     <section className={styles['section']}>
       <div className={styles['wrapper']}>
-        <SelectedFiltersController />
+        <SelectedFiltersController filters={filters} setFilters={setFilters} />
         <Button className={styles['btn']} onClick={() => setUrlParams(filters)}>
           Найти
         </Button>

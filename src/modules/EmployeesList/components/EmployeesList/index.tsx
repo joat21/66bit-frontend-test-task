@@ -1,5 +1,5 @@
-import { FC, UIEvent, useEffect, useRef, useState } from 'react';
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { FC, useState } from 'react';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { fetchEmployees } from '../api/fetchEmployees';
 
 import { Top } from '../Top';
@@ -11,6 +11,8 @@ import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
   const [filters, setFilters] = useState<FetchEmployeesUrlParams>({});
+
+  console.log(filters);
 
   const {
     data,
