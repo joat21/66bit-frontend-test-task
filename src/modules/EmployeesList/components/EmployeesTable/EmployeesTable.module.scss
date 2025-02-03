@@ -45,6 +45,10 @@
 
       td {
         border-bottom: 1px solid var(--light-gray);
+
+        .link {
+          font-size: 2rem;
+        }
       }
 
       &:hover {

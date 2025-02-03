@@ -1,0 +1,36 @@
+.overview {
+  border-bottom: 1px solid var(--light-gray);
+
+  .inner {
+    display: flex;
+    align-items: center;
+    gap: 4.2rem;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+  }
+
+  &__photo {
+    width: 163px;
+    height: 163px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &-name {
+      margin-bottom: 1.6rem;
+      font-size: 4rem;
+      line-height: 1.175;
+      font-weight: 700;
+    }
+
+    &-position {
+      margin-bottom: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 1.15;
+      font-weight: 500;
+    }
+  }
+}

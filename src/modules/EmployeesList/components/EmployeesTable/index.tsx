@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Employee } from '@entities/model';
 import styles from './EmployeesTable.module.scss';
 import { formatDate } from 'helpers/formatDate';
+import { Link } from 'react-router-dom';
 
 interface EmployeesTableProps {
   data: Employee[];
@@ -22,10 +23,12 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((employee, i) => (
+          {data.map((employee) => (
             <tr key={employee.id}>
               <td style={{ paddingLeft: '1.2rem' }}>
-                {employee.name} {i + 1}
+                <Link to={`${employee.id}`} className={styles['link']}>
+                  {employee.name}
+                </Link>
               </td>
               <td>{employee.position}</td>
               <td>{employee.phone}</td>

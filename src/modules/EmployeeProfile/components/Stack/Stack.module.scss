@@ -1,0 +1,14 @@
+.stack-list {
+  display: flex;
+  gap: 1.6rem;
+
+  li {
+    padding: 1rem;
+    min-width: 9rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    text-align: center;
+    background-color: var(--light-gray);
+  }
+}

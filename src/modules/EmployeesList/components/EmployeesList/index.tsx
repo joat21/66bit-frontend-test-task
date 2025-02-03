@@ -7,7 +7,7 @@ import { SelectedFilters } from '../SelectedFilters';
 import { EmployeesTable } from '../EmployeesTable';
 
 import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
-import { fetchEmployees } from '../api/fetchEmployees';
+import { fetchEmployees } from '../../api/fetchEmployees';
 
 export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
