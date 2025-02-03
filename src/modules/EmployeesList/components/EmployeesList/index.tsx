@@ -13,8 +13,6 @@ export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
   const [filters, setFilters] = useState<FetchEmployeesUrlParams>({});
 
-  console.log(filters);
-
   const {
     data,
     // error,

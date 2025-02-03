@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Employee } from '@entities/model';
 import styles from './EmployeesTable.module.scss';
+import { formatDate } from 'helpers/formatDate';
 
 interface EmployeesTableProps {
   data: Employee[];
@@ -28,7 +29,9 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ data }) => {
               </td>
               <td>{employee.position}</td>
               <td>{employee.phone}</td>
-              <td style={{ paddingRight: '1.2rem' }}>{employee.birthdate}</td>
+              <td style={{ paddingRight: '1.2rem' }}>
+                {formatDate(employee.birthdate)}
+              </td>
             </tr>
           ))}
         </tbody>
