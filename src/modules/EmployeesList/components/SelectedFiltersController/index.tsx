@@ -23,7 +23,9 @@ export const SelectedFiltersController: FC<SelectedFiltersControllerProps> = ({
             <li key={item}>
               <SelectedFilter
                 filterName={key}
-                options={filters[key]}
+                options={
+                  filters[key as keyof Omit<FetchEmployeesUrlParams, 'name'>]
+                }
                 optionName={item}
                 setFilters={setFilters}
               />

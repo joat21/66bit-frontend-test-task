@@ -1,29 +1,16 @@
 import { FC } from 'react';
-import styles from './Filters.module.scss';
-import {
-  FetchEmployeesUrlParams,
-  Gender,
-  Position,
-  Stack,
-} from '@modules/EmployeesList/types';
 import { Dropdown } from '../Dropdown';
+import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+import styles from './Filters.module.scss';
 
 interface FiltersProps {
   filters: FetchEmployeesUrlParams;
   setFilters: React.Dispatch<React.SetStateAction<FetchEmployeesUrlParams>>;
 }
 
-const POSITIONS = Object.values(Position).filter((item) => {
-  return isNaN(Number(item));
-});
-
-const GENDERS = Object.values(Gender).filter((item) => {
-  return isNaN(Number(item));
-});
-
-const STACK = Object.values(Stack).filter((item) => {
-  return isNaN(Number(item));
-});
+const POSITIONS = ['Frontend', 'Backend', 'Analyst', 'Manager', 'Designer'];
+const GENDERS = ['Male', 'Female'];
+const STACK = ['CSharp', 'React', 'Java', 'PHP', 'Figma', 'Word'];
 
 export const Filters: FC<FiltersProps> = ({ filters, setFilters }) => {
   return (

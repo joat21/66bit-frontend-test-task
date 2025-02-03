@@ -1,26 +1,22 @@
-import { useEffect, useState } from 'react';
-import {
-  FetchEmployeesUrlParams,
-  Gender,
-  Position,
-  Stack,
-} from '@modules/EmployeesList/types';
+import { FC, useEffect, useState } from 'react';
+import { FILTER_OPTION_NAMES } from '@constants/filters';
+import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 import styles from './Dropdown.module.scss';
 
-interface DropdownProps<T> {
+interface DropdownProps {
   filterName: string;
-  selectedItems: T[] | undefined;
+  selectedItems: string[] | undefined;
   setFilters: React.Dispatch<React.SetStateAction<FetchEmployeesUrlParams>>;
-  options: T[];
+  options: string[];
 }
 
-export const Dropdown = <T extends Position | Gender | Stack>({
+export const Dropdown: FC<DropdownProps> = ({
   filterName,
   selectedItems,
   setFilters,
   options,
-}: DropdownProps<T>) => {
-  const [checkedItems, setCheckedItems] = useState<T[]>(selectedItems ?? []);
+}) => {
+  const [checkedItems, setCheckedItems] = useState(selectedItems ?? []);
 
   useEffect(() => {
     setCheckedItems(selectedItems ?? []);
@@ -28,11 +24,10 @@ export const Dropdown = <T extends Position | Gender | Stack>({
 
   const handleCheck = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = event.target;
-    const val = value as T;
-    let newCheckedItems: T[];
+    let newCheckedItems: string[];
 
     if (checked) {
-      newCheckedItems = [...checkedItems, val];
+      newCheckedItems = [...checkedItems, value];
       setCheckedItems(newCheckedItems);
     } else {
       newCheckedItems = checkedItems.filter((item) => item !== value);
@@ -46,7 +41,7 @@ export const Dropdown = <T extends Position | Gender | Stack>({
     <div className={styles['wrapper']}>
       {options.map((option) => (
         <label key={option}>
-          <span>{option}</span>
+          <span>{FILTER_OPTION_NAMES[filterName][option]}</span>
           <input
             type="checkbox"
             name={filterName}

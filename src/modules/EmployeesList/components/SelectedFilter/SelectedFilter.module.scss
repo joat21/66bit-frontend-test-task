@@ -3,6 +3,13 @@
   gap: 1rem;
   align-items: center;
   padding: 1rem;
+  min-width: max-content;
   border-radius: 0.5rem;
+  color: var(--primary-text-color);
   background-color: var(--background-color);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--primary-color);
+  }
 }

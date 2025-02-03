@@ -1,12 +1,13 @@
 import { FC, useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { fetchEmployees } from '../api/fetchEmployees';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { Top } from '../Top';
 import { SelectedFilters } from '../SelectedFilters';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { EmployeesTable } from '../EmployeesTable';
+
 import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+import { fetchEmployees } from '../api/fetchEmployees';
 
 export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
@@ -16,13 +17,13 @@ export const EmployeesList: FC = () => {
 
   const {
     data,
-    error,
+    // error,
     fetchNextPage,
     hasNextPage,
-    isFetching,
+    // isFetching,
     isFetchingNextPage,
     isLoading,
-    status,
+    // status,
   } = useInfiniteQuery({
     queryKey: ['employee', urlParams],
     queryFn: fetchEmployees,
