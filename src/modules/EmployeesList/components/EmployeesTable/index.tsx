@@ -26,20 +26,22 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((employee) => (
-            <tr key={employee.id}>
-              <td style={{ paddingLeft: '1.2rem' }}>
-                <Link to={`${employee.id}`} className={styles['link']}>
-                  {employee.name}
-                </Link>
-              </td>
-              <td>{employee.position}</td>
-              <td>{employee.phone}</td>
-              <td style={{ paddingRight: '1.2rem' }}>
-                {formatDate(employee.birthdate)}
-              </td>
-            </tr>
-          ))}
+          {data.length > 0
+            ? data.map((employee) => (
+                <tr key={employee.id}>
+                  <td style={{ paddingLeft: '1.2rem' }}>
+                    <Link to={`${employee.id}`} className={styles['link']}>
+                      {employee.name}
+                    </Link>
+                  </td>
+                  <td>{employee.position}</td>
+                  <td>{employee.phone}</td>
+                  <td style={{ paddingRight: '1.2rem' }}>
+                    {formatDate(employee.birthdate)}
+                  </td>
+                </tr>
+              ))
+            : 'Нет данных'}
         </tbody>
       </table>
     </Container>

@@ -1,8 +1,11 @@
 import { FC } from 'react';
-import styles from './Top.module.scss';
+
 import { Container, Input } from '@UI';
 import { Filters } from '../Filters';
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+
+import { FetchEmployeesUrlParams } from '../../types';
+
+import styles from './Top.module.scss';
 
 interface TopProps {
   filters: FetchEmployeesUrlParams;
@@ -20,7 +23,9 @@ export const Top: FC<TopProps> = ({ filters, setFilters }) => {
         type="text"
         value={filters.name || ''}
         placeholder="Поиск"
-        onChange={(e) => setFilters({ name: e.target.value })}
+        onChange={(e) =>
+          setFilters((prev) => ({ ...prev, name: e.target.value }))
+        }
       />
     </Container>
   );
