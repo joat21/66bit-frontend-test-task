@@ -1,8 +1,11 @@
 import { FC } from 'react';
-import { Employee } from '@entities/model';
-import styles from './EmployeesTable.module.scss';
-import { formatDate } from 'helpers/formatDate';
 import { Link } from 'react-router-dom';
+
+import { Container } from '@UI';
+import { Employee } from '@entities/model';
+import { formatDate } from 'helpers/formatDate';
+
+import styles from './EmployeesTable.module.scss';
 
 interface EmployeesTableProps {
   data: Employee[];
@@ -10,7 +13,7 @@ interface EmployeesTableProps {
 
 export const EmployeesTable: FC<EmployeesTableProps> = ({ data }) => {
   return (
-    <section className={styles['section']}>
+    <Container className={styles['table-wrapper']}>
       <table>
         <thead>
           <tr>
@@ -39,6 +42,6 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ data }) => {
           ))}
         </tbody>
       </table>
-    </section>
+    </Container>
   );
 };

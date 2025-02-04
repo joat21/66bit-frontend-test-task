@@ -6,7 +6,15 @@ export const MainLayout: FC = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <main
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Outlet />
+      </main>
     </>
   );
 };

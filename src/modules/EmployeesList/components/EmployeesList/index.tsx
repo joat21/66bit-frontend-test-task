@@ -2,12 +2,15 @@ import { FC, useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import { Container } from '@UI';
 import { Top } from '../Top';
 import { SelectedFilters } from '../SelectedFilters';
 import { EmployeesTable } from '../EmployeesTable';
 
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+import { FetchEmployeesUrlParams } from '../../types';
 import { fetchEmployees } from '../../api/fetchEmployees';
+
+import styles from './EmployeesList.module.scss';
 
 export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
@@ -41,14 +44,16 @@ export const EmployeesList: FC = () => {
         setFilters={setFilters}
         setUrlParams={setUrlParams}
       />
-      <InfiniteScroll
-        dataLength={employees.length}
-        next={() => !isFetchingNextPage && fetchNextPage()}
-        hasMore={hasNextPage}
-        loader={<h4>Loading...</h4>}
-      >
-        <EmployeesTable data={employees} />
-      </InfiniteScroll>
+      <Container className={styles['employees-list']} as="section">
+        <InfiniteScroll
+          dataLength={employees.length}
+          next={() => !isFetchingNextPage && fetchNextPage()}
+          hasMore={hasNextPage}
+          loader={<h4>Loading...</h4>}
+        >
+          <EmployeesTable data={employees} />
+        </InfiniteScroll>
+      </Container>
     </>
   );
 };

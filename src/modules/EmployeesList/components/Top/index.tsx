@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './Top.module.scss';
-import { Input } from '@UI';
+import { Container, Input } from '@UI';
 import { Filters } from '../Filters';
 import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
 
@@ -11,7 +11,7 @@ interface TopProps {
 
 export const Top: FC<TopProps> = ({ filters, setFilters }) => {
   return (
-    <section className={styles['section']}>
+    <Container className={styles['section']} as="section">
       <div className={styles['top']}>
         <h1>Список сотрудников</h1>
         <Filters filters={filters} setFilters={setFilters} />
@@ -22,7 +22,6 @@ export const Top: FC<TopProps> = ({ filters, setFilters }) => {
         placeholder="Поиск"
         onChange={(e) => setFilters({ name: e.target.value })}
       />
-      <input />
-    </section>
+    </Container>
   );
 };

@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import classNames from 'classnames';
 import logo from '@assets/66bit-logo.svg';
 import styles from './Header.module.scss';
+import { Container } from '@UI';
 
 export const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={classNames('container', styles['header__container'])}>
+      <Container className={styles['header__container']}>
         <a className={styles['header__logo']} href="https://66bit.ru/">
           <img src={logo} alt="Логотип 66 Бит" />
         </a>
@@ -29,7 +29,7 @@ export const Header: FC = () => {
             theme toggler
           </button>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

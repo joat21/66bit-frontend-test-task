@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import classNames from 'classnames';
 
+import { Container } from '@UI';
 import { Overview } from '../Overview';
 import { MainInfo } from '../MainInfo';
 
@@ -23,9 +23,9 @@ export const EmployeeProfile: FC = () => {
   if (!data || isLoading || isFetching) return 'Loading...';
 
   return (
-    <div className={classNames('container', styles['container'])}>
+    <Container className={styles['container']}>
       <Overview employee={data} />
       <MainInfo employee={data} />
-    </div>
+    </Container>
   );
 };

@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import styles from './SelectedFilters.module.scss';
-import { Button } from '@UI';
+import { Button, Container } from '@UI';
 import { SelectedFiltersController } from '../SelectedFiltersController';
 import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+import classNames from 'classnames';
 
 interface SelectedFiltersProps {
   filters: FetchEmployeesUrlParams;
@@ -16,13 +17,13 @@ export const SelectedFilters: FC<SelectedFiltersProps> = ({
   setUrlParams,
 }) => {
   return (
-    <section className={styles['section']}>
-      <div className={styles['wrapper']}>
+    <section className={classNames(styles['selected-filters'])}>
+      <Container className={styles['container']}>
         <SelectedFiltersController filters={filters} setFilters={setFilters} />
         <Button className={styles['btn']} onClick={() => setUrlParams(filters)}>
           Найти
         </Button>
-      </div>
+      </Container>
     </section>
   );
 };
