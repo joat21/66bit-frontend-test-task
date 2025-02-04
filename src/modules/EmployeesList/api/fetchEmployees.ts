@@ -4,14 +4,13 @@ import { capitalize } from 'helpers/capitalize';
 
 interface FetchEmployeesArgs {
   pageParam: number;
-  queryKey: (string | FetchEmployeesUrlParams)[];
+  urlParams: FetchEmployeesUrlParams;
 }
 
 export const fetchEmployees = async ({
   pageParam,
-  queryKey,
+  urlParams,
 }: FetchEmployeesArgs): Promise<Employee[]> => {
-  const [, urlParams] = queryKey;
   const params = new URLSearchParams({
     Page: pageParam.toString(),
     Count: '10',

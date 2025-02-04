@@ -27,10 +27,11 @@ export const EmployeesList: FC = () => {
     // status,
   } = useInfiniteQuery({
     queryKey: ['employee', urlParams],
-    queryFn: fetchEmployees,
+    queryFn: ({ pageParam }) => fetchEmployees({ pageParam, urlParams }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) =>
       lastPage.length >= 10 ? pages.length + 1 : undefined,
+    staleTime: 1000 * 60 * 5,
   });
 
   if (!data || isLoading) return 'Loading...';

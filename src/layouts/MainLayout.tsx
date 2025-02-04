@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { Header } from '@components/Header';
 import { Breadcrumbs } from '@components/Breadcrumbs';
 
@@ -16,6 +16,7 @@ export const MainLayout: FC = () => {
       >
         <Breadcrumbs />
         <Outlet />
+        <ScrollRestoration />
       </main>
     </>
   );
