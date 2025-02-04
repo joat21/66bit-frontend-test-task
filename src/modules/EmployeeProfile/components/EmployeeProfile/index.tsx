@@ -6,18 +6,15 @@ import { Container } from '@UI';
 import { Overview } from '../Overview';
 import { MainInfo } from '../MainInfo';
 
-import { Employee } from '@entities/model';
+import { fetchEmployee } from '../../api/fetchEmployee';
 
 import styles from './EmployeeProfile.module.scss';
 
 export const EmployeeProfile: FC = () => {
   const { id = '' } = useParams();
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ['employee'],
-    queryFn: (): Promise<Employee> =>
-      fetch('https://frontend-test-api.stk8s.66bit.ru/api/Employee/' + id).then(
-        (res) => res.json()
-      ),
+    queryKey: ['employee', id],
+    queryFn: () => fetchEmployee({ id }),
   });
 
   if (!data || isLoading || isFetching) return 'Loading...';
