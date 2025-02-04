@@ -2,14 +2,15 @@ import { FC } from 'react';
 import logo from '@assets/66bit-logo.svg';
 import styles from './Header.module.scss';
 import { Container } from '@UI';
+import { Link } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
     <header className={styles.header}>
       <Container className={styles['header__container']}>
-        <a className={styles['header__logo']} href="https://66bit.ru/">
+        <Link className={styles['header__logo']} to="/">
           <img src={logo} alt="Логотип 66 Бит" />
-        </a>
+        </Link>
         <div className={styles['header__right']}>
           <div className={styles['header__right-contacts']}>
             <a

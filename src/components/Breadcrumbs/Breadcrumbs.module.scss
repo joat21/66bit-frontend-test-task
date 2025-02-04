@@ -1,0 +1,15 @@
+.breadcrumbs {
+  padding: 2.8rem 0 4.4rem;
+
+  ul {
+    display: flex;
+    gap: 1.6rem;
+
+    li {
+      font-size: 1.8rem;
+      line-height: 1.15;
+      font-weight: 500;
+      color: var(--secondary-text-color);
+    }
+  }
+}
