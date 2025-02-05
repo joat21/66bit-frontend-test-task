@@ -28,13 +28,40 @@
   --secondary-text-color: var(--gray);
   --alternative-text-color: var(--white);
 
-  --background-color: var(--white);
+  --primary-background-color: var(--white);
+  --secondary-background-color: var(--light-gray);
 
   --btn-bg-color: var(--primary-color);
+
+  --header-shadow-color: rgba(--blue, 0.25);
 }
 
 html {
   font-size: 62.5%;
+}
+
+html[data-theme='light'] {
+  --primary-color: var(--blue);
+
+  --primary-text-color: var(--black);
+  --secondary-text-color: var(--gray);
+  --alternative-text-color: var(--white);
+
+  --primary-background-color: var(--white);
+  --secondary-background-color: var(--light-gray);
+
+  --btn-bg-color: var(--primary-color);
+
+  --header-shadow-color: rgba(--blue, 0.25);
+}
+
+html[data-theme='dark'] {
+  --primary-text-color: var(--lightest-gray);
+
+  --primary-background-color: var(--black);
+  --secondary-background-color: var(--dark-gray);
+
+  --header-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 #root {
@@ -47,9 +74,10 @@ a {
   line-height: 1.17;
   color: inherit;
   text-decoration: none;
+  transition: color 0.15s ease-in-out;
 
   &:hover {
-    color: black;
+    color: var(--primary-color);
   }
 }
 
@@ -61,42 +89,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: var(--primary-text-color);
-  background-color: var(--background-color);
+  background-color: var(--primary-background-color);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    --primary-text-color: var(--lightest-gray);
+
+    --primary-background-color: var(--black);
+    --secondary-background-color: var(--dark-gray);
+
+    --header-shadow-color: rgba(0, 0, 0, 0.1);
   }
 }

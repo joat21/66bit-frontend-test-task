@@ -14,7 +14,7 @@
       padding: 2.8rem 0;
     }
 
-    tr {
+    tbody tr {
       position: relative;
       transition: background-color 0.1s ease-in-out;
 
@@ -36,7 +36,7 @@
       }
 
       &:hover {
-        background-color: var(--light-gray);
+        background-color: var(--secondary-background-color);
       }
     }
 
@@ -52,7 +52,7 @@
         font-weight: 500;
         text-align: left;
         color: var(--secondary-text-color);
-        background-color: var(--background-color);
+        background-color: var(--primary-background-color);
       }
     }
   }

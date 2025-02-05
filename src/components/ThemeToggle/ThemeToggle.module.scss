@@ -1,0 +1,54 @@
+.theme-toggle {
+  --offset: 3px;
+  --diameter: 20px;
+
+  position: relative;
+  padding: var(--offset);
+  width: 55px;
+  height: 26px;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  box-shadow: 0px 4px 4px 0px rgba(#000, 0.25) inset;
+  transition: transform 0.2s ease-in-out;
+
+  .thumb {
+    position: absolute;
+    top: var(--offset);
+    right: var(--offset);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--diameter);
+    height: var(--diameter);
+    border-radius: 50%;
+    color: var(--primary-color);
+    background-color: var(--white);
+    transition: right 0.2s ease-in-out;
+
+    .icon {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .visible {
+      position: relative;
+      opacity: 1;
+    }
+
+    .icon-moon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .icon-sun {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &[aria-pressed='true'] .thumb {
+    right: calc(100% - var(--diameter) - var(--offset));
+  }
+}

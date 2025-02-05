@@ -1,8 +1,11 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Container } from '@UI';
+
 import logo from '@assets/66bit-logo.svg';
 import styles from './Header.module.scss';
-import { Container } from '@UI';
-import { Link } from 'react-router-dom';
+import { ThemeToggle } from '@components/ThemeToggle';
 
 export const Header: FC = () => {
   return (
@@ -26,9 +29,7 @@ export const Header: FC = () => {
               info@66bit.ru
             </a>
           </div>
-          <button className={styles['header__right-theme-toggle']}>
-            theme toggler
-          </button>
+          <ThemeToggle />
         </div>
       </Container>
     </header>

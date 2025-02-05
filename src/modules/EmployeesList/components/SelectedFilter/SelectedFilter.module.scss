@@ -6,8 +6,12 @@
   min-width: max-content;
   border-radius: 0.5rem;
   color: var(--primary-text-color);
-  background-color: var(--background-color);
+  background-color: var(--primary-background-color);
   transition: all 0.2s ease-in-out;
+
+  span {
+    font-size: 1.6rem;
+  }
 
   &:hover {
     color: var(--primary-color);
