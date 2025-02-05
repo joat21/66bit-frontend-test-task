@@ -14,10 +14,10 @@ export const FILTER_OPTION_NAMES: Record<string, Record<string, string>> = {
   },
   stack: {
     CSharp: 'C#',
-    React: 'Figma',
+    React: 'React',
     Java: 'Java',
     PHP: 'PHP',
-    Figma: 'React',
+    Figma: 'Figma',
     Word: 'Word',
   },
 };

@@ -16,18 +16,21 @@ export const Filters: FC<FiltersProps> = ({ filters, setFilters }) => {
   return (
     <div className={styles['wrapper']}>
       <Dropdown
+        filterTitle="Должность"
         filterName="position"
         selectedItems={filters.position}
         setFilters={setFilters}
         options={POSITIONS}
       />
       <Dropdown
+        filterTitle="Пол"
         filterName="gender"
         selectedItems={filters.gender}
         setFilters={setFilters}
         options={GENDERS}
       />
       <Dropdown
+        filterTitle="Стек технологий"
         filterName="stack"
         selectedItems={filters.stack}
         setFilters={setFilters}

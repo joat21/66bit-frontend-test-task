@@ -31,7 +31,8 @@
       "@store/*": ["store/*"],
       "@assets/*": ["assets/*"],
       "@entities/*": ["entities/*"],
-      "@helpers/*": ["helpers/*"]
+      "@helpers/*": ["helpers/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]
