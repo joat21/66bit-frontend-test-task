@@ -8,7 +8,7 @@ interface FiltersProps {
   setFilters: React.Dispatch<React.SetStateAction<FetchEmployeesUrlParams>>;
 }
 
-const POSITIONS = ['Frontend', 'Backend', 'Analyst', 'Manager', 'Designer'];
+const POSITIONS = ['Backend', 'Frontend', 'Analyst', 'Manager', 'Designer'];
 const GENDERS = ['Male', 'Female'];
 const STACK = ['CSharp', 'React', 'Java', 'PHP', 'Figma', 'Word'];
 

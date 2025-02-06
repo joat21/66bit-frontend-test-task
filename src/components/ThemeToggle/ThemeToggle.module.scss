@@ -51,4 +51,23 @@
   &[aria-pressed='true'] .thumb {
     right: calc(100% - var(--diameter) - var(--offset));
   }
+
+  @media (max-width: 480px) {
+    --offset: 2px;
+    --diameter: 17px;
+    width: 47px;
+    height: 21px;
+
+    .thumb {
+      .icon-moon {
+        width: 11px;
+        height: 11px;
+      }
+
+      .icon-sun {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
 }

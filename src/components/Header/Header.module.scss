@@ -15,6 +15,18 @@
     display: block;
   }
 
+  @media (max-width: 768px) {
+    &__logo img {
+      width: 90px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__logo img {
+      width: 52px;
+    }
+  }
+
   &__right {
     display: flex;
     align-items: center;
@@ -23,6 +35,19 @@
     &-contacts {
       display: flex;
       gap: 6.4rem;
+    }
+
+    @media (max-width: 640px) {
+      &-contacts {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .header__container {
+      padding-top: 1.6rem;
+      padding-bottom: 1.6rem;
     }
   }
 }

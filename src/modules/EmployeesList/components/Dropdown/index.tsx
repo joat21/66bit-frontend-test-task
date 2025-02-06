@@ -67,10 +67,8 @@ export const Dropdown: FC<DropdownProps> = ({
       {isOpen && (
         <ul className={styles['options']}>
           {options.map((option) => (
-            <React.Fragment key={option}>
-              <label htmlFor={option}>
-                {FILTER_OPTION_NAMES[filterName][option]}
-              </label>
+            <label key={option}>
+              <span>{FILTER_OPTION_NAMES[filterName][option]}</span>
               <Checkbox
                 id={option}
                 type="checkbox"
@@ -79,7 +77,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 value={option}
                 onChange={handleCheck}
               />
-            </React.Fragment>
+            </label>
           ))}
         </ul>
       )}

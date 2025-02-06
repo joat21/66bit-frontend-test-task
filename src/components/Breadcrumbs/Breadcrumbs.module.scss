@@ -3,13 +3,63 @@
 
   ul {
     display: flex;
+    align-items: center;
     gap: 1.6rem;
 
     li {
+      max-height: max-content;
       font-size: 1.8rem;
-      line-height: 1.15;
+      line-height: 1;
       font-weight: 500;
       color: var(--secondary-text-color);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0 3rem;
+  }
+
+  @media (max-width: 640px) {
+    ul li {
+      font-size: 1.6rem;
+
+      a {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    ul {
+      gap: 1.2rem;
+
+      li {
+        font-size: 1.4rem;
+
+        a {
+          font-size: 1.4rem;
+        }
+      }
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    ul li {
+      font-size: 1.2rem;
+
+      a {
+        font-size: 1.2rem;
+      }
     }
   }
 }

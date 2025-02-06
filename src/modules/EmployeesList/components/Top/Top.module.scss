@@ -1,16 +1,50 @@
 .section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'title filters'
+    'search search';
+  align-items: center;
   gap: 2.8rem;
   margin-bottom: 2.8rem;
 
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  h1 {
+    grid-area: title;
+    font-size: 4rem;
+    line-height: 1.175;
+    font-weight: 700;
+  }
+
+  input {
+    grid-area: search;
+  }
+
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 996px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'title'
+      'search'
+      'filters';
+  }
+
+  @media (max-width: 640px) {
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
 
     h1 {
-      font-size: 4rem;
-      line-height: 1.175;
-      font-weight: 700;
+      font-size: 2.4rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 2rem;
     }
   }
 }

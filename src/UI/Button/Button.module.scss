@@ -9,4 +9,19 @@
   letter-spacing: 2%;
   color: var(--alternative-text-color);
   background-color: var(--btn-bg-color);
+
+  @media (max-width: 640px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+  }
 }

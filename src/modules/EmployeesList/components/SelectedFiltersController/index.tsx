@@ -13,27 +13,33 @@ export const SelectedFiltersController: FC<SelectedFiltersControllerProps> = ({
   setFilters,
 }) => {
   const selectedFiltersArray = Object.entries(filters);
+  const isAnyFiltersSelected =
+    Object.values(filters)
+      .filter((item) => Array.isArray(item))
+      .flat().length > 0;
 
   return (
     <div className={styles['selected-filters__controller']}>
       <span>Выбранные фильтры:</span>
-      <ul className={styles['selected-filters__controller-items']}>
-        {selectedFiltersArray.map(([key, value]) => {
-          if (!Array.isArray(value)) return null;
-          return value.map((item) => (
-            <li key={item}>
-              <SelectedFilter
-                filterName={key}
-                options={
-                  filters[key as keyof Omit<FetchEmployeesUrlParams, 'name'>]
-                }
-                optionName={item}
-                setFilters={setFilters}
-              />
-            </li>
-          ));
-        })}
-      </ul>
+      {isAnyFiltersSelected && (
+        <ul className={styles['selected-filters__controller-items']}>
+          {selectedFiltersArray.map(([key, value]) => {
+            if (!Array.isArray(value)) return null;
+            return value.map((item) => (
+              <li key={item}>
+                <SelectedFilter
+                  filterName={key}
+                  options={
+                    filters[key as keyof Omit<FetchEmployeesUrlParams, 'name'>]
+                  }
+                  optionName={item}
+                  setFilters={setFilters}
+                />
+              </li>
+            ));
+          })}
+        </ul>
+      )}
     </div>
   );
 };

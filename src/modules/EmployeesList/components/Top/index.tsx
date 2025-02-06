@@ -15,10 +15,8 @@ interface TopProps {
 export const Top: FC<TopProps> = ({ filters, setFilters }) => {
   return (
     <Container className={styles['section']} as="section">
-      <div className={styles['top']}>
-        <h1>Список сотрудников</h1>
-        <Filters filters={filters} setFilters={setFilters} />
-      </div>
+      <h1>Список сотрудников</h1>
+      <Filters filters={filters} setFilters={setFilters} />
       <Input
         type="text"
         value={filters.name || ''}

@@ -2,16 +2,54 @@
   display: flex;
   gap: 4rem;
   align-items: center;
+  width: 100%;
 
   span {
     font-size: 2rem;
     line-height: 1.175;
     font-weight: 500;
+    white-space: nowrap;
   }
 
   &-items {
     display: flex;
-    gap: 2.4rem;
-    overflow-x: auto;
+    gap: 1rem 2.4rem;
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 640px) {
+    &-items {
+      column-gap: 1.6rem;
+    }
+
+    span {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    span {
+      font-size: 1.4rem;
+    }
+
+    &-items {
+      span {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    &-items {
+      span {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
