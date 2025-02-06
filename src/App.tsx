@@ -8,8 +8,11 @@ import {
 import { fetchEmployee } from '@modules/EmployeeProfile';
 
 import { MainLayout } from './layouts/MainLayout';
+
+import { MainPage } from 'pages/Main.page';
 import { EmployeesListPage } from './pages/EmployeesList.page';
 import { EmployeeProfilePage } from './pages/EmployeeProfile.page';
+import { NotFoundPage } from 'pages/NotFound.page';
 
 import { DynamicCrumbLink } from '@components/DynamicCrumbLink';
 
@@ -22,7 +25,7 @@ const router = createBrowserRouter(
       element={<MainLayout />}
       handle={{ crumb: () => <Link to="/">Главная</Link> }}
     >
-      <Route index element={<h1>Главная</h1>} />
+      <Route index element={<MainPage />} />
       <Route
         path="employees-list"
         handle={{
@@ -46,6 +49,7 @@ const router = createBrowserRouter(
           }}
         />
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
 );

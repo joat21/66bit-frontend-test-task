@@ -15,6 +15,8 @@ export const Breadcrumbs = () => {
     .filter((match) => Boolean((match.handle as Handle)?.crumb))
     .map((match) => (match.handle as Handle).crumb(match.params.id ?? ''));
 
+  if (crumbs.length === 1) return null;
+
   return (
     <Container>
       <nav className={styles['breadcrumbs']}>
