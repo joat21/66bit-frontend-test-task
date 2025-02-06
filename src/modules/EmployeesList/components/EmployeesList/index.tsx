@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { Container } from '@UI';
 import { Top } from '../Top';
@@ -34,9 +33,6 @@ export const EmployeesList: FC = () => {
     staleTime: 1000 * 60 * 5,
   });
 
-  if (!data || isLoading) return 'Loading...';
-  const employees = data.pages.flat();
-
   return (
     <>
       <Top filters={filters} setFilters={setFilters} />
@@ -46,14 +42,12 @@ export const EmployeesList: FC = () => {
         setUrlParams={setUrlParams}
       />
       <Container className={styles['employees-list']} as="section">
-        <InfiniteScroll
-          dataLength={employees.length}
+        <EmployeesTable
+          data={data}
           next={() => !isFetchingNextPage && fetchNextPage()}
           hasMore={hasNextPage}
-          loader={<h4>Loading...</h4>}
-        >
-          <EmployeesTable data={employees} />
-        </InfiniteScroll>
+          isLoading={isLoading}
+        />
       </Container>
     </>
   );

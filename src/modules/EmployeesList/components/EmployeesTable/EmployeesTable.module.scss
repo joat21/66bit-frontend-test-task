@@ -4,7 +4,8 @@
   position: relative;
   line-height: 1.175;
   min-width: 730px;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   .link {
     font-size: 2rem;

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import { Container } from '@UI';
+import { Container, Loader } from '@UI';
 import { Overview } from '../Overview';
 import { MainInfo } from '../MainInfo';
 
@@ -18,7 +18,7 @@ export const EmployeeProfile: FC = () => {
     queryFn: () => fetchEmployee({ id }),
   });
 
-  if (!data || isLoading || isFetching) return 'Loading...';
+  if (!data || isLoading || isFetching) return <Loader />;
 
   return (
     <>
