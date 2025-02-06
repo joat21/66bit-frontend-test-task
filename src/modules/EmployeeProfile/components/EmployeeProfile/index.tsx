@@ -16,6 +16,7 @@ export const EmployeeProfile: FC = () => {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['employee', id],
     queryFn: () => fetchEmployee({ id }),
+    throwOnError: (error) => error instanceof Error,
   });
 
   if (!data || isLoading || isFetching) return <Loader />;

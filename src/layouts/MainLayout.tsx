@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { Header } from '@components/Header';
 import { Breadcrumbs } from '@components/Breadcrumbs';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorBoundaryFallback } from '@components/ErrorBoundaryFallback';
 
 export const MainLayout: FC = () => {
   return (
@@ -14,8 +16,12 @@ export const MainLayout: FC = () => {
           alignItems: 'center',
         }}
       >
-        <Breadcrumbs />
-        <Outlet />
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
+          <Breadcrumbs />
+        </ErrorBoundary>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFallback}>
+          <Outlet />
+        </ErrorBoundary>
         <ScrollRestoration />
       </main>
     </>

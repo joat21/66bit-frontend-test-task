@@ -1,0 +1,27 @@
+.wrapper {
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+
+  .fallback {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem;
+    border: 1px solid #ffccc7;
+    border-radius: 0.8rem;
+    font-weight: 500;
+    background-color: #fff2f0;
+
+    .info {
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

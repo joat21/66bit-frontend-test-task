@@ -15,23 +15,16 @@ export const EmployeesList: FC = () => {
   const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
   const [filters, setFilters] = useState<FetchEmployeesUrlParams>({});
 
-  const {
-    data,
-    // error,
-    fetchNextPage,
-    hasNextPage,
-    // isFetching,
-    isFetchingNextPage,
-    isLoading,
-    // status,
-  } = useInfiniteQuery({
-    queryKey: ['employee', urlParams],
-    queryFn: ({ pageParam }) => fetchEmployees({ pageParam, urlParams }),
-    initialPageParam: 1,
-    getNextPageParam: (lastPage, pages) =>
-      lastPage.length >= 10 ? pages.length + 1 : undefined,
-    staleTime: 1000 * 60 * 5,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
+    useInfiniteQuery({
+      queryKey: ['employee', urlParams],
+      queryFn: ({ pageParam }) => fetchEmployees({ pageParam, urlParams }),
+      initialPageParam: 1,
+      getNextPageParam: (lastPage, pages) =>
+        lastPage.length >= 10 ? pages.length + 1 : undefined,
+      staleTime: 1000 * 60 * 5,
+      throwOnError: (error) => error instanceof Error,
+    });
 
   return (
     <>
