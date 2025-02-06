@@ -9,6 +9,11 @@
   letter-spacing: 2%;
   color: var(--alternative-text-color);
   background-color: var(--btn-bg-color);
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--btn-hover-bg-color);
+  }
 
   @media (max-width: 640px) {
     font-size: 1.6rem;

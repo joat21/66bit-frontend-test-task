@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { Stack } from '../Stack';
 import { Employee } from '@entities/model';
 import styles from './Overview.module.scss';
-import { Stack } from '../Stack';
 
 interface OverviewProps {
   employee: Employee;

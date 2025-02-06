@@ -1,8 +1,11 @@
 import { FC } from 'react';
-import styles from './SelectedFilter.module.scss';
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+
 import { Button } from '@UI';
+
+import { FetchEmployeesUrlParams } from '../../types';
 import { FILTER_OPTION_NAMES } from '@constants/filters';
+
+import styles from './SelectedFilter.module.scss';
 
 interface SelectedFilterProps {
   filterName: string;

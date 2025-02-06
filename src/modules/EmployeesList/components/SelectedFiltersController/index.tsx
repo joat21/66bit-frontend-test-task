@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import styles from './SelectedFiltersController.module.scss';
 import { SelectedFilter } from '../SelectedFilter';
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
+import { FetchEmployeesUrlParams } from '../../types';
+import styles from './SelectedFiltersController.module.scss';
 
 interface SelectedFiltersControllerProps {
   filters: FetchEmployeesUrlParams;

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import classNames from 'classnames';
 
 import { Container, Loader } from '@UI';
 import { Overview } from '../Overview';
@@ -9,7 +10,6 @@ import { MainInfo } from '../MainInfo';
 import { fetchEmployee } from '../../api/fetchEmployee';
 
 import styles from './EmployeeProfile.module.scss';
-import classNames from 'classnames';
 
 export const EmployeeProfile: FC = () => {
   const { id = '' } = useParams();

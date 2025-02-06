@@ -16,6 +16,7 @@
   --white: #fff;
   --black: #292929;
   --blue: #155da4;
+  --dark-blue: #104c88;
   --blue-rgb: 21, 93, 164;
   --dark-gray: #3e3e3e;
   --gray: #b0b0b0;
@@ -33,6 +34,7 @@
   --secondary-background-color: var(--light-gray);
 
   --btn-bg-color: var(--primary-color);
+  --btn-hover-bg-color: var(--dark-blue);
 
   --header-shadow-color: rgba(var(--blue-rgb), 0.25);
 }
@@ -50,6 +52,7 @@ html[data-theme='light'] {
   --secondary-background-color: var(--light-gray);
 
   --btn-bg-color: var(--primary-color);
+  --btn-hover-bg-color: var(--dark-blue);
 
   --header-shadow-color: rgba(var(--blue-rgb), 0.25);
 }
@@ -68,7 +71,21 @@ html[data-theme='dark'] {
   height: 100vh;
 }
 
+* {
+  transition: outline 0.15s ease-in-out;
+
+  &:focus-visible {
+    outline: 1px solid var(--primary-color);
+    outline-offset: 3px;
+  }
+
+  &:hover {
+    outline: none;
+  }
+}
+
 a {
+  position: relative;
   font-size: 1.8rem;
   line-height: 1.17;
   color: inherit;

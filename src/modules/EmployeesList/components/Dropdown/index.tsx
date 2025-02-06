@@ -1,10 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
-import { FILTER_OPTION_NAMES } from '@constants/filters';
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
-import styles from './Dropdown.module.scss';
-import { Checkbox } from '@UI';
-import { useClickOutside } from 'hooks/useClickOutside';
 import classNames from 'classnames';
+
+import { Checkbox } from '@UI';
+
+import { FetchEmployeesUrlParams } from '../../types';
+import { FILTER_OPTION_NAMES } from '@constants/filters';
+import { useClickOutside } from 'hooks/useClickOutside';
+
+import styles from './Dropdown.module.scss';
 
 interface DropdownProps {
   filterTitle: string;
@@ -46,7 +49,7 @@ export const Dropdown: FC<DropdownProps> = ({
 
   return (
     <div className={styles['dropdown']} ref={dropdownRef}>
-      <span
+      <button
         className={classNames(styles['title'], {
           [styles['opened']]: isOpen,
         })}
@@ -63,7 +66,7 @@ export const Dropdown: FC<DropdownProps> = ({
             strokeLinejoin="round"
           />
         </svg>
-      </span>
+      </button>
       {isOpen && (
         <ul className={styles['options']}>
           {options.map((option) => (
