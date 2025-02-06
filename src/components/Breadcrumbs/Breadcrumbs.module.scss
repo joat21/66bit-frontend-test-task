@@ -11,10 +11,17 @@
       font-size: 1.8rem;
       line-height: 1;
       font-weight: 500;
+      white-space: nowrap;
       color: var(--secondary-text-color);
     }
 
+    li:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     svg {
+      flex-shrink: 0;
       width: 16px;
       height: 16px;
     }
@@ -22,6 +29,10 @@
 
   @media (max-width: 768px) {
     padding: 1.5rem 0 3rem;
+
+    .first {
+      display: none;
+    }
   }
 
   @media (max-width: 640px) {

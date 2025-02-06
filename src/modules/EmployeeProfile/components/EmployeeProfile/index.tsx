@@ -9,6 +9,7 @@ import { MainInfo } from '../MainInfo';
 import { fetchEmployee } from '../../api/fetchEmployee';
 
 import styles from './EmployeeProfile.module.scss';
+import classNames from 'classnames';
 
 export const EmployeeProfile: FC = () => {
   const { id = '' } = useParams();
@@ -20,9 +21,15 @@ export const EmployeeProfile: FC = () => {
   if (!data || isLoading || isFetching) return 'Loading...';
 
   return (
-    <Container className={styles['container']}>
-      <Overview employee={data} />
-      <MainInfo employee={data} />
-    </Container>
+    <>
+      <Container
+        className={classNames(styles['container'], styles['overview-wrapper'])}
+      >
+        <Overview employee={data} />
+      </Container>
+      <Container className={styles['container']}>
+        <MainInfo employee={data} />
+      </Container>
+    </>
   );
 };

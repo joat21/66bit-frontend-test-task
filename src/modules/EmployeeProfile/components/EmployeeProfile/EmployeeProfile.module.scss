@@ -1,4 +1,9 @@
 .container {
   flex-direction: column;
-  gap: 4rem;
+}
+
+.overview-wrapper {
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }

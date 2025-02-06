@@ -21,8 +21,8 @@ export const Overview: FC<OverviewProps> = ({ employee }) => {
           <span className={styles['overview__info-position']}>
             {employee.position}
           </span>
-          <Stack stack={employee.stack} />
         </div>
+        <Stack stack={employee.stack} />
       </div>
     </div>
   );

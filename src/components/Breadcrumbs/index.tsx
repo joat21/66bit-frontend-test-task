@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { useMatches } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 import { Container } from '@UI';
+import classNames from 'classnames';
 
 interface Handle {
   crumb: (id?: string) => ReactNode;
@@ -19,13 +20,25 @@ export const Breadcrumbs = () => {
       <nav className={styles['breadcrumbs']}>
         <ul>
           {crumbs.map((crumb, i) => {
+            const isFirst = i === 0;
             const isLast = i === crumbs.length - 1;
             return isLast ? (
-              <li key={i}>{crumb}</li>
+              <li key={i} className={styles['last']}>
+                {crumb}
+              </li>
             ) : (
               <React.Fragment key={i}>
-                <li>{crumb}</li>
+                <li
+                  className={classNames({
+                    [styles['first']]: isFirst && crumbs.length > 2,
+                  })}
+                >
+                  {crumb}
+                </li>
                 <svg
+                  className={classNames({
+                    [styles['first']]: isFirst && crumbs.length > 2,
+                  })}
                   viewBox="0 0 16 17"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
