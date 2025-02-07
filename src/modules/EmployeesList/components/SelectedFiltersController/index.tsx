@@ -20,7 +20,7 @@ export const SelectedFiltersController: FC<SelectedFiltersControllerProps> = ({
 
   return (
     <div className={styles['selected-filters__controller']}>
-      <span>Выбранные фильтры:</span>
+      <span className={styles['caption']}>Выбранные фильтры:</span>
       {isAnyFiltersSelected && (
         <ul className={styles['selected-filters__controller-items']}>
           {selectedFiltersArray.map(([key, value]) => {

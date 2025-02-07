@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
 
-  span {
+  .caption {
     font-size: 2rem;
     line-height: 1.175;
     font-weight: 500;
@@ -15,7 +15,6 @@
     display: flex;
     gap: 1rem 2.4rem;
     flex-wrap: wrap;
-    font-size: 1.6rem;
   }
 
   @media (max-width: 1024px) {
@@ -28,13 +27,13 @@
       column-gap: 1.6rem;
     }
 
-    span {
+    .caption {
       font-size: 1.6rem;
     }
   }
 
   @media (max-width: 480px) {
-    span {
+    .caption {
       font-size: 1.4rem;
     }
 
