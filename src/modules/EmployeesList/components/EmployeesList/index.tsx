@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { Container } from '@UI';
@@ -12,18 +13,29 @@ import { fetchEmployees } from '../../api/fetchEmployees';
 import styles from './EmployeesList.module.scss';
 
 export const EmployeesList: FC = () => {
-  const [urlParams, setUrlParams] = useState<FetchEmployeesUrlParams>({});
-  const [filters, setFilters] = useState<FetchEmployeesUrlParams>({});
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [filters, setFilters] = useState<FetchEmployeesUrlParams>(() => {
+    return {
+      name: searchParams.get('Name') ?? undefined,
+      position: searchParams.getAll('Position'),
+      gender: searchParams.getAll('Gender'),
+      stack: searchParams.getAll('Stack'),
+    };
+  });
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
-      queryKey: ['employee', urlParams],
-      queryFn: ({ pageParam }) => fetchEmployees({ pageParam, urlParams }),
+      queryKey: ['employee', window.location.search],
+      queryFn: ({ pageParam }) =>
+        fetchEmployees({
+          pageParam,
+          searchParams,
+        }),
       initialPageParam: 1,
       getNextPageParam: (lastPage, pages) =>
         lastPage.length >= 10 ? pages.length + 1 : undefined,
       staleTime: 1000 * 60 * 5,
-      throwOnError: (error) => error instanceof Error,
+      throwOnError: true,
     });
 
   return (
@@ -32,7 +44,7 @@ export const EmployeesList: FC = () => {
       <SelectedFilters
         filters={filters}
         setFilters={setFilters}
-        setUrlParams={setUrlParams}
+        setSearchParams={setSearchParams}
       />
       <Container className={styles['employees-list']} as="section">
         <EmployeesTable

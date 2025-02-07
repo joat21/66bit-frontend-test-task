@@ -1,31 +1,20 @@
 import { Employee } from '@entities/model';
-import { FetchEmployeesUrlParams } from '@modules/EmployeesList/types';
-import { capitalize } from 'helpers/capitalize';
 
 interface FetchEmployeesArgs {
   pageParam: number;
-  urlParams: FetchEmployeesUrlParams;
+  searchParams: URLSearchParams;
 }
 
 export const fetchEmployees = async ({
   pageParam,
-  urlParams,
+  searchParams,
 }: FetchEmployeesArgs): Promise<Employee[]> => {
-  const params = new URLSearchParams({
-    Page: pageParam.toString(),
-    Count: '10',
-  });
-
-  Object.entries(urlParams).map(([key, value]) => {
-    if (Array.isArray(value)) {
-      value.map((item) => params.append(capitalize(key), item));
-    } else if (value) {
-      params.append(capitalize(key), value);
-    }
-  });
+  searchParams.set('Page', pageParam.toString());
+  searchParams.set('Count', '10');
 
   const res = await fetch(
-    'https://frontend-test-api.stk8s.66bit.ru/api/Employee?' + params.toString()
+    'https://frontend-test-api.stk8s.66bit.ru/api/Employee?' +
+      searchParams.toString()
   );
   return res.json();
 };
